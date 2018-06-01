@@ -7,6 +7,7 @@ app.use(bodyParser.json({ extended: true }));
 app.use(bodyParser.urlencoded({ extended: true }));
 
 require('./config/sessions')(app);
+require('./config/flash_middleware')(app);
 
 app.set('view engine', 'ejs');
 

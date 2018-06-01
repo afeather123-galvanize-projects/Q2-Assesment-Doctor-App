@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Book an Appointment</title>
+</head>
+<body>
+    <h1>Booking with <%=doctor.name%></h1>
+    <form action="/appointment" method="POST">
+        <input type="text" name="name" id="" placeholder="Name">
+        <input type="date" name="date" id="">
+        <input type="time" name="time">
+        <input type="text" name="reason">
+        <input type="number" name="doctor_id" id="" value="<%=doctor.id%>" hidden>
+        <textarea name="details" id="" cols="30" rows="10" placeholder="description"></textarea>
+        <button>Submit</button>
+    </form>
+</body>
+</html>

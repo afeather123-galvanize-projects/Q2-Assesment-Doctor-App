@@ -5,11 +5,13 @@
     <title></title>
   </head>
   <body>
-    <h3>Hello enter your name below</h3>
-    <h4>Currently logged in as - <%=name %></h4>
-    <form action="/createname" method="post">
-      <input type="text" name="name" >
-      <input type="submit" name="" value="">
-    </form>
+    <a href="/doctors/login">Doctor Login</a>
+    <%doctors.forEach(doctor => {%>
+    <div>
+      <h1><%=doctor.name%></h1>
+      <img src="<%=doctor.imgurl%>" alt="">
+      <a href="/book/<%=doctor.id%>">Book</a>
+    </div>
+    <%})%>
   </body>
 </html>

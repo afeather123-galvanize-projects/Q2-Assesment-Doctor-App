@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <a href="/appointments/edit/<%=appointment.id%>">Edit</a>
+    <h1><%=appointment.name%></h1>
+    <h3><%=appointment.reason%></h3>
+    <p><%=appointment.details%></p>
+
+
+    <% if(!appointment.confirmed) {%>
+    <form action="/appointments/confirm/<%=appointment.id%>" method="POST">
+        <button>Confirm Appointment</button>
+    </form>
+    <%}%>
+
+    <%if(appointment.confirmed && !appointment.completed) {%>
+    <form action="/appointments/complete/<%=appointment.id%>" method="POST">
+        <button>Mark As Completed</button>
+    </form>
+    <%}%>
+
+    <%if(appointment.confirmed && appointment.completed) {%>
+    <form action="/appointments/delete/<%=appointment.id%>" method="POST">
+        <button>Delete Appointment</button>
+    </form>
+    <%}%>
+
+    <h1>Notes:</h1>
+
+    <%notes.forEach(note => {%>
+        <p><%=note.body%></p>
+    <%})%>
+    <br>
+    <form action="/notes/<%=appointment.id%>" method="POST">
+        <textarea name="body" id="" cols="30" rows="10" placeholder="Add a new note..."></textarea>
+        <button>Submit</button>
+    </form>
+</body>
+</html>

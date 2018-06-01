@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/appointments/edit/<%=appointment.id%>" method="POST">
+        <input type="text" name="name" id="" value="<%=appointment.name%>" placeholder="name">
+        <input type="date" name="date" id="date" vlaue="<%=appointment.date%>">
+        <input type="time" name="time" id="time" value="<%=appointment.time%>">
+        <input type="text" name="reason" placeholder="Reason" value="<%=appointment.reason%>">
+        <input type="number" name="doctor_id" id="" value="<%=appointment.doctor_id%>" hidden>
+        <textarea name="details" id="" cols="30" rows="10" placeholder="Description"><%=appointment.details%></textarea>
+        <button>Submit</button>
+    </form>
+    <script>
+        document.getElementById('date').valueAsDate = new Date("<%=appointment.date%>");
+        document.getElementById("time").value = "<%=appointment.time%>";
+    </script>
+</body>
+</html>
